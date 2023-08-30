@@ -23,14 +23,15 @@ public class Control {
 		return "home";
 	}
 
-	@RequestMapping(value = "/process", method = RequestMethod.POST)
+	@RequestMapping(value = "/process", method = RequestMethod.GET)
 	public String process(Patient pat, Model model) {
 		model.addAttribute("patient", pat);
 		System.out.println(pat.getTime() + " " + pat.getAdate());
 		if (ms.deleteSlot(pat.getDocid(), pat.getSid()) && ms.insertPatient(pat)) {
 			int n = ms.getPatientId(pat);
 			ms.addAppointment(pat, n);
-			model.addAttribute("appid", "143");
+			int apid = ms.getAppointmentId(pat);
+			model.addAttribute("appid", apid);
 			model.addAttribute("pid", n);
 			return "sucess";
 		} else {

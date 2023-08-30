@@ -1,8 +1,8 @@
 package ms;
 
 public class Patient {
-	private int ptn_age, ptn_mobile, sid, docid;
-	private String time, adate;
+	private int ptn_age, sid, docid;
+	private String time, adate, ptn_mobile;
 
 	public String getTime() {
 		return time;
@@ -46,11 +46,11 @@ public class Patient {
 		this.ptn_age = ptn_age;
 	}
 
-	public int getPtn_mobile() {
+	public String getPtn_mobile() {
 		return ptn_mobile;
 	}
 
-	public void setPtn_mobile(int ptn_mobile) {
+	public void setPtn_mobile(String ptn_mobile) {
 		this.ptn_mobile = ptn_mobile;
 	}
 

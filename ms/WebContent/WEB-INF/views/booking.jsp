@@ -44,7 +44,7 @@
 			</tbody>
 			</tr>
 		</table>
-		<form action="process" method="post">
+		<form action="process" method="get">
 			<label>name:<input type="text" name="ptn_name"></label></br>
 			</br> <label>age:<input type="text" name="ptn_age"></label></br>
 			</br> <label>gender:<input type="text" name="ptn_gender"></label></br>

@@ -17,4 +17,6 @@ public interface msDAO {
 	int getPatientId(Patient pp);
 
 	boolean addAppointment(Patient pp, int n);
+
+	int getAppointmentId(Patient pp);
 }
