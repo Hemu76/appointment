@@ -1,0 +1,48 @@
+CREATE TABLE msdoctor (
+    d_id serial PRIMARY KEY,
+    d_name varchar(70),
+    d_gender varchar(2),
+    d_qual varchar(20),
+    d_exp integer
+);
+
+insert into msdoctor(d_name,d_gender,d_qual,d_exp) values ('shanker dada','m','mbbs',25),('bendapparao','m','rmp',7);
+select * from msdoctor
+
+
+CREATE TABLE mspatient (
+    ptn_id serial PRIMARY KEY,
+    ptn_name varchar(70),
+    ptn_age integer CHECK (ptn_age BETWEEN 0 AND 100),
+    ptn_gender varchar(2),
+    ptn_mobile varchar(12)
+);
+
+insert into mspatient(ptn_name,ptn_age,ptn_gender,ptn_mobile) values ('madhu',21,'m','9390409846'),('sai kiran',23,'m','8008254093'),('thalapathy',51,'m','9390409846');
+select * from mspatient
+
+
+
+
+create table appslot(
+s_id serial primary key,
+s_docid integer references msdoctor(d_id),
+s_date date,
+s_time time
+)
+insert into appslot(s_docid,s_date,s_time) values(1,'2023-08-31','10:00:00'),(1,'2023-08-31','13:00:00'),(2,'2023-09-01','08:00:00'),(2,'2023-09-01','16:00:00')
+
+
+
+
+
+create table msappointment(
+ap_id serial primary key,
+ap_bdate date,
+ap_adate date,
+ap_docid integer references msdoctor(d_id),
+ap_ptnid integer references mspatient(ptn_id),
+ap_slotid integer ,
+ap_status varchar(2)
+   
+)
